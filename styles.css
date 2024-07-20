@@ -1,0 +1,630 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4; 
+
+   
+
+}
+
+#app {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+
+}
+
+header h1 {
+    margin: 0;
+}
+
+#user-info {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    text-align: right;
+}
+
+#main-nav {
+    background-color: #333;
+    padding: 10px;
+    text-align: center;
+}
+
+#main-nav button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#main-nav button:hover {
+    background-color: #45a049;
+}
+
+#contenido-principal {
+    background-color: #fff;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.login-container {
+    max-width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    
+}
+
+.login-container h2 {
+    text-align: center;
+    color: #333;
+}
+
+.login-container input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.login-container button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.login-container button:hover {
+    background-color: #45a049;
+}
+
+/* Estilos para la calculadora */
+#calculadora {
+    max-width: 300px;
+    margin: 20px auto;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+#monto {
+    width: 94%;
+    padding: 8px;
+    font-size: 24px;
+    margin-bottom: 10px;
+    text-align: right;
+}
+
+#teclado {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.tecla, #borrar, #agregar,#borrar-ultimo,#borrar{
+    padding: 15px;
+    font-size: 18px;
+    text-align: center;
+    background-color: #e0e0e0;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.operacion{
+    padding: 15px;
+    font-size: 20px;
+    text-align: center;
+    background-color: #ff0f08;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+
+}
+
+.operacion:hover{
+    background-color: #bb041d;
+}
+
+.tecla:hover,#borrar-ultimo:hover,#borrar:hover{
+    background-color: #d0d0d0;
+}
+
+#agregar {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 30px;
+    text-align: center;
+    text-decoration: none;
+    border: 3px solid #4CAF50; /* Borde grueso y verde */
+    border-radius: 5px; /* Bordes redondeados */
+    background-color: #4CAF50;
+    color: #fff; /* Color de texto blanco */
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+#agregar:hover {
+    background-color: #45a049; /* Cambia el color de fondo al pasar el ratón */
+    border-color: #45a049; /* Cambia el color del borde al pasar el ratón */
+}
+
+/* Estilos para la vista previa de venta */
+#vista-previa {
+    margin-top: 20px;
+}
+
+.item-venta {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #f0f0f0;
+    margin-bottom: 5px;
+    border-radius: 3px;
+}
+
+.eliminar-monto {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+/* Estilos para la boleta */
+.boleta {
+    max-width: 58mm; /* Ancho de 58mm para la impresora */
+    margin: 20px auto;
+    padding: 10px;
+    background-color: #fff;
+    border: none; /* Eliminar el borde en todos los lados */
+    border-top: 1px dashed #000; /* Borde punteado en la parte superior */
+    border-bottom: 1px dashed #000; /* Borde punteado en la parte inferior */
+    font-family: 'Roboto', sans-serif; /* Fuente moderna y limpia */
+    color: #000;
+}
+
+
+.boleta h2, .boleta h3 {
+    text-align: left; /* Alinear texto a la izquierda */
+    margin: 5px 0; /* Reducir el margen */
+    font-size: 14px; /* Tamaño de fuente pequeño */
+}
+
+.boleta h4 {
+    text-align: center; /* Alinear texto a la izquierda */
+    margin: 5px 0; /* Reducir el margen */
+    font-size: 14px; /* Tamaño de fuente pequeño */
+}
+
+
+.boleta hr {
+    border: 0;
+    border-top: 1px dashed #000; /* Línea punteada */
+    margin: 10px 0; /* Margen pequeño */
+}
+
+.boleta .boleta-totales, .boleta .boleta-item {
+    display: flex;
+    justify-content: space-between; /* Justificar los totales y los items */
+    font-size: 12px; /* Tamaño de fuente pequeño */
+    font-weight: bold; /* Hacer el texto en negrita */
+    margin-top: 10px; /* Añadir margen superior */
+}
+
+.boleta img {
+    display: block;
+    margin: 20px auto;
+    max-width: 100%;
+}
+
+.codigo-barra-container {
+    display: flex;
+    justify-content: center; /* Centrar horizontalmente */
+    margin-top: 10px;
+}
+
+
+.boleta-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    }
+
+    .boleta-buttons button {
+        background-color: #000; /* Fondo negro */
+        color: white; /* Texto blanco */
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        border-radius: 4px;
+        font-size: 12px; /* Tamaño de fuente pequeño */
+    }
+
+    .boleta-buttons button:hover {
+        background-color: #333; /* Fondo gris oscuro al pasar el ratón */
+    }
+
+
+
+
+
+
+
+
+
+
+.boleta img {
+    display: block;
+    margin: 20px auto;
+    max-width: 100%;
+    
+}
+
+.boleta-buttons {
+    display: flex;
+    justify-content: space-between;
+
+    max-width: 300px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+
+
+}
+
+#imprimir-boleta, .btn-verde, .btn-rojo {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin: 2px;
+    width: 45%;
+}
+
+#imprimir-boleta:hover, .btn-verde:hover, .btn-rojo:hover {
+    background-color: #45a049;
+}
+
+@media print {
+    body * {
+        visibility: hidden; /* Ocultar todo el contenido */
+    
+    }
+    .boleta, .boleta * {
+        visibility: visible; /* Hacer visible solo la boleta */
+
+    }
+    .boleta {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%); /* Esto nos ayuda a tener centrado la información */ 
+        width: auto; /* Ajusta el ancho según sea necesario */
+    }
+}
+
+.btn-rojo {
+    background-color: #ff4d4d;
+}
+
+.btn-rojo:hover {
+    background-color: #ff1a1a;
+}
+
+/* Estilos para tablas */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+tr:hover {
+    background-color: #f5f5f5;
+}
+
+/* Estilos para formularios */
+form {
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+form input, form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #45a049;
+}
+
+/* Media Queries para Responsividad */
+@media (max-width: 768px) {
+    #app {
+        padding: 10px;
+    }
+
+    header {
+        padding: 0.5rem;
+    }
+
+    #user-info {
+        text-align: center;
+    }
+
+    #main-nav {
+        padding: 5px;
+    }
+
+    #main-nav button {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+
+    #contenido-principal {
+        padding: 10px;
+    }
+
+    .login-container, .boleta, #calculadora {
+        max-width: 100%;
+        margin: 10px auto;
+    }
+
+    .boleta-buttons {
+        flex-direction: column;
+    }
+
+    #imprimir-boleta, .btn-verde, .btn-rojo {
+        width: 100%;
+        margin: 5px 0;
+    }
+
+    .item-venta {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .item-venta span, .item-venta button {
+        width: 100%;
+        margin-bottom: 5px;
+    }
+
+    table {
+        font-size: 14px;
+    }
+
+    th, td {
+        padding: 8px;
+    }
+
+    form {
+        width: 100%;
+        padding: 0 10px;
+    }
+
+    form input, form select, form button {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    /* Estilos Responsivos para la Tabla de Usuarios */
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+
+    thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    tr {
+        margin: 0 0 1rem 0;
+    }
+
+    tr:nth-child(odd) {
+        background: #f2f2f2;
+    }
+
+    td {
+        border: none;
+        border-bottom: 1px solid #eee;
+        position: relative;
+        padding-left: 50%;
+        text-align: right;
+    }
+
+    td:before {
+        position: absolute;
+        top: 12px;
+        left: 10px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        text-align: left;
+        font-weight: bold;
+    }
+
+    td:before {
+        content: attr(data-label);
+    }
+
+    /* Botones de propina */
+.opciones-pago button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin: 5px;
+}
+
+.opciones-pago button:hover {
+    background-color: #45a049;
+}
+
+/* Botones de acción */
+.boleta-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.boleta-buttons .btn-rojo {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.boleta-buttons .btn-rojo:hover {
+    background-color: #ff1a1a;
+}
+
+}
+
+/* Botones de propina */
+.opciones-pago button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin: 5px;
+}
+
+.opciones-pago button:hover {
+    background-color: #45a049;
+}
+
+/* Botones de acción */
+.boleta-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.boleta-buttons .btn-rojo {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.boleta-buttons .btn-rojo:hover {
+    background-color: #ff1a1a;
+}
+
+/* Escanear Venta */
+.escanear-venta-container {
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.escanear-venta-container input {
+    width: 80%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.escanear-venta-container button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.escanear-venta-container button:hover {
+    background-color: #45a049;
+}
+
+#finalizar-venta {
+    background-color: #007BFF; /* Fondo azul */
+    color: white; /* Color de texto blanco */
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+}
+
+#finalizar-venta:hover {
+    background-color: #0056b3; /* Fondo azul más oscuro al pasar el ratón */
+}
+
+#finalizar-venta i {
+    margin-right: 5px; /* Espacio entre el icono y el texto */
+    font-size: 20px; /* Tamaño del icono */
+    pointer-events: none; /* Asegura que solo el botón reciba los eventos del ratón */
+}
+
