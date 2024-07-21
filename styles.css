@@ -91,7 +91,8 @@ header h1 {
 }
 
 .login-container button {
-    width: 110%;
+    width: 100%;
+    text-align: center;
     padding: 10px;
     background-color: #4CAF50;
     color: white;
