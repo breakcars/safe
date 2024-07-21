@@ -128,7 +128,7 @@ header h1 {
     gap: 10px;
 }
 
-.tecla, #borrar, #agregar,#borrar-ultimo,#borrar{
+.tecla, #borrar, #agregar,#borrar-ultimo,#borrar, .operacion{
     padding: 15px;
     font-size: 18px;
     text-align: center;
@@ -139,23 +139,8 @@ header h1 {
     transition: background-color 0.3s;
 }
 
-.operacion{
-    padding: 15px;
-    font-size: 20px;
-    text-align: center;
-    background-color: #ff0f08;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
 
-}
-
-.operacion:hover{
-    background-color: #bb041d;
-}
-
-.tecla:hover,#borrar-ultimo:hover,#borrar:hover{
+.tecla:hover,#borrar-ultimo:hover,#borrar:hover, .operacion:hover{
     background-color: #d0d0d0;
 }
 
@@ -274,14 +259,6 @@ header h1 {
     .boleta-buttons button:hover {
         background-color: #333; /* Fondo gris oscuro al pasar el ratón */
     }
-
-
-
-
-
-
-
-
 
 
 .boleta img {
