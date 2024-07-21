@@ -165,7 +165,7 @@ class UI {
                 <input type="text" id="monto" readonly>
                 <div id="teclado">
                     <button id="borrar">C</button>
-                    <button class="operacion">(&#215;)</button> <!-- Botón de multiplicación -->
+                    <button class="operacion"><i class="fas fa-times"></i></button> <!-- Botón de multiplicación -->
                     <button id="borrar-ultimo"><i class="fas fa-backspace"></i></button>
                     <button class="tecla">1</button>
                     <button class="tecla">2</button>
