@@ -250,8 +250,10 @@ class UI {
         items.forEach((item, index) => {
             html += `
                 <div class="item-venta">
-                     <span>$${item.toLocaleString('es-CL')}</span> 
-                    <button class="eliminar-monto" onclick="app.ui.eliminarItemVenta(${index})">Eliminar</button>
+                    <span>$${item.toLocaleString('es-CL')}</span> 
+                    <button class="eliminar-monto" onclick="app.ui.eliminarItemVenta(${index})">
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
                 </div>
             `;
         });
