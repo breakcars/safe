@@ -171,9 +171,11 @@ header h1 {
     margin-top: 20px;
 }
 
+/* Estilos para el contenedor del item de venta */
 .item-venta {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding: 10px;
     background-color: #f0f0f0;
     margin-bottom: 5px;
@@ -181,12 +183,17 @@ header h1 {
 }
 
 .eliminar-monto {
-    background-color: #ff4d4d;
-    color: white;
+    background-color: transparent;
+    color: #ff4d4d;
     border: none;
-    padding: 5px 10px;
     cursor: pointer;
-    border-radius: 3px;
+    font-size: 18px;
+    padding: 5px;
+    transition: color 0.3s;
+}
+
+.eliminar-monto:hover {
+    color: #ff1a1a;
 }
 
 /* Estilos para la boleta */
@@ -417,16 +424,19 @@ form button:hover {
         margin: 5px 0;
     }
 
-    .item-venta {
-        flex-direction: column;
-        align-items: flex-start;
+     .item-venta {
+        flex-direction: row;
+        align-items: center;
     }
 
-    .item-venta span, .item-venta button {
-        width: 100%;
-        margin-bottom: 5px;
+    .item-venta span {
+        flex-grow: 1;
     }
 
+    .eliminar-monto {
+        margin-left: 10px;
+    }
+    
     table {
         font-size: 14px;
     }
