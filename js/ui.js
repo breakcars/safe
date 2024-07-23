@@ -301,19 +301,9 @@ class UI {
                 </div>
             </div>
         </div>
-        <div class="boleta-buttons">
-
-       
-            /*<button id="imprimir-boleta">Imprimir</button>*/
-        <button id="btnImprimir" class="button is-success">Imprimir</button>
-            <div class="field">
-                        <label class="label">MAC de la impresora:</label>
-                        <div class="control">
-                            <input id="impresora" class="input" type="text"
-                                placeholder="La MAC de la impresora">
-                        </div>
-                    </div>
-            <button id="volver-atras" class="btn-rojo">Atrás</button>
+        <div class="boleta-buttons">       
+             <button id="imprimir-boleta">Imprimir</button>
+             <button id="volver-atras" class="btn-rojo">Atrás</button>
         </div>
         `;
         // Generar el código de barras
