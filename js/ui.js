@@ -56,6 +56,35 @@ class UI {
         });
     }
 
+    mostrarConfiguracionImpresora() {
+        this.contenidoPrincipal.innerHTML = `
+            <div class="configuracion-impresora">
+                <h2>Configuración de Impresora</h2>
+                <form id="configuracion-impresora-form">
+                    <label for="mac-impresora">MAC de la Impresora:</label>
+                    <input type="text" id="mac-impresora" required>
+                    <label for="licencia">Licencia:</label>
+                    <input type="text" id="licencia" required>
+                    <button type="submit">Guardar Configuración</button>
+                </form>
+            </div>
+        `;
+        document.getElementById('configuracion-impresora-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const macImpresora = document.getElementById('mac-impresora').value;
+            const licencia = document.getElementById('licencia').value;
+            this.app.guardarConfiguracionImpresora(macImpresora, licencia);
+            alert('Configuración guardada');
+        });
+
+        // Cargar la configuración guardada si existe
+        const configuracion = this.app.obtenerConfiguracionImpresora();
+        if (configuracion) {
+            document.getElementById('mac-impresora').value = configuracion.macImpresora;
+            document.getElementById('licencia').value = configuracion.licencia;
+        }
+    }
+    
     mostrarEscanearVenta() {
         this.contenidoPrincipal.innerHTML = `
             <h2>Escanear Venta</h2>
