@@ -49,8 +49,16 @@ class App {
             this.ui.mostrarGestionUsuarios();
         }
     }
+
+    guardarConfiguracionImpresora(macImpresora, licencia) {
+        localStorage.setItem('configuracionImpresora', JSON.stringify({ macImpresora, licencia }));
+    }
+
+    obtenerConfiguracionImpresora() {
+        return JSON.parse(localStorage.getItem('configuracionImpresora'));
+    }
 }
 
-document.addEventListener('DOMContentLoaded', () => { 
-    window.app = new App(); 
+document.addEventListener('DOMContentLoaded', () => {
+    window.app = new App();
 });
