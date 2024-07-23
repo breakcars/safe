@@ -346,10 +346,52 @@ class UI {
         margin: 10,
     });
     
-        document.getElementById('imprimir-boleta').addEventListener('click', () => {
-            window.print();
+        document.getElementById('imprimir-boleta').addEventListener('click', async () => {
+            const configuracion = this.app.obtenerConfiguracionImpresora();
+            if (!configuracion) {
+                return alert('Por favor, configure la impresora primero.');
+            }
+            const { macImpresora, licencia } = configuracion;
+            const conector = new ConectorEscposAndroid(licencia);
+            conector
+                .Iniciar()
+                .EstablecerAlineacion(ConectorEscposAndroid.ALINEACION_CENTRO)
+                .EscribirTexto(`Antigua Fuente\nFecha: ${new Date(venta.fecha).toLocaleString()}\n`)
+                .Feed(1)
+                .EstablecerAlineacion(ConectorEscposAndroid.ALINEACION_IZQUIERDA)
+                .EscribirTexto('Items:\n')
+                .Feed(1)
+                .EstablecerAlineacion(ConectorEscposAndroid.ALINEACION_IZQUIERDA);
+            
+            venta.items.forEach(item => {
+                conector
+                    .EscribirTexto(`${item.toLocaleString('es-CL')}\n`);
+            });
+
+            conector
+                .Feed(1)
+                .EstablecerAlineacion(ConectorEscposAndroid.ALINEACION_DERECHA)
+                .EscribirTexto(`Total: $${venta.total.toLocaleString('es-CL')}\n`)
+                .EscribirTexto(`Propina Sugerida: $${venta.propina.toLocaleString('es-CL')}\n`)
+                .EscribirTexto(`Subtotal: $${venta.subtotal.toLocaleString('es-CL')}\n`)
+                .Feed(1)
+                .EstablecerAlineacion(ConectorEscposAndroid.ALINEACION_CENTRO)
+                .ImprimirCodigoDeBarras('code128', venta.codigo, ConectorEscposAndroid.TAMAÑO_IMAGEN_NORMAL, 320, 50)
+                .Feed(2)
+                .Corte(1);
+
+            try {
+                const respuesta = await conector.imprimirEn(macImpresora);
+                if (respuesta === true) {
+                    alert('Impreso correctamente');
+                } else {
+                    alert('Error: ' + respuesta);
+                }
+            } catch (e) {
+                alert('Error imprimiendo: ' + e.message);
+            }
         });
-    
+
         document.getElementById('volver-atras').addEventListener('click', () => {
             this.mostrarNuevaVenta();
         });
