@@ -304,8 +304,8 @@ class UI {
         <div class="boleta-buttons">
 
        
-            //<button id="imprimir-boleta">Imprimir</button>//
-        <button id="btnImprimir">Imprimir</button>
+            /*<button id="imprimir-boleta">Imprimir</button>*/
+        <button id="btnImprimir" class="button is-success">Imprimir</button>
             <div class="field">
                         <label class="label">MAC de la impresora:</label>
                         <div class="control">
