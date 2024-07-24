@@ -31,11 +31,11 @@ class UI {
             ${usuario.rol === 'cajero' || usuario.rol === 'admin' || usuario.rol === 'admin_principal' ? '<button id="ver-ventas">Ver Ventas</button>' : ''}
             ${usuario.rol === 'admin' || usuario.rol === 'admin_principal' ? '<button id="gestionar-usuarios">Gestionar Usuarios</button>' : ''}
             ${usuario.rol === 'cajero' ? '<button id="escanear-venta">Escanear Venta</button>' : ''}
+            ${usuario.rol === 'vendedor' ? '<button id="configuracion-impresora">Configuración de Impresora</button>' : ''}
             <button id="cerrar-sesion">Cerrar Sesión</button>
         `;
         this.agregarEventosNavegacion();
     }
-    
 
     agregarEventosNavegacion() {
         if (document.getElementById('nueva-venta')) {
@@ -49,6 +49,9 @@ class UI {
         }
         if (document.getElementById('escanear-venta')) {
             document.getElementById('escanear-venta').addEventListener('click', () => this.mostrarEscanearVenta());
+        }
+        if (document.getElementById('configuracion-impresora')) {
+            document.getElementById('configuracion-impresora').addEventListener('click', () => this.mostrarConfiguracionImpresora());
         }
         document.getElementById('cerrar-sesion').addEventListener('click', () => {
             this.app.cerrarSesion();
