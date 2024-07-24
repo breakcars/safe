@@ -8,7 +8,20 @@ class App {
     }
 
     iniciar() {
-        this.ui.mostrarLogin();
+        const usuarioActual = this.auth.obtenerUsuarioActual();
+        if (usuarioActual) {
+            this.ui.actualizarNavegacion();
+            const rol = usuarioActual.rol;
+            if (rol === 'vendedor') {
+                this.ui.mostrarNuevaVenta();
+            } else if (rol === 'cajero') {
+                this.ui.mostrarPanelCajero();
+            } else if (rol === 'admin' || rol === 'admin_principal') {
+                this.ui.mostrarPanelAdmin();
+            }
+        } else {
+            this.ui.mostrarLogin();
+        }
     }
 
     iniciarSesion() {
@@ -50,8 +63,8 @@ class App {
         }
     }
 
-    guardarConfiguracionImpresora(macImpresora, licencia) {
-        localStorage.setItem('configuracionImpresora', JSON.stringify({ macImpresora, licencia }));
+    guardarConfiguracionImpresora(macImpresora) {
+        localStorage.setItem('configuracionImpresora', JSON.stringify({ macImpresora }));
     }
 
     obtenerConfiguracionImpresora() {
