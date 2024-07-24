@@ -330,36 +330,44 @@ class UI {
                     <span>$${venta.subtotal.toLocaleString('es-CL')}</span> <!--Monto peso Chileno-->
                 </div>
             <hr>
-
-            <h3>Código: ${venta.codigo}</h3>
             <div class="codigo-barra-container">
                  <svg id="barcode"></svg>
                 </div>
             </div>
         </div>
-        <div class="boleta-buttons">       
-             <button id="imprimir-boleta">Imprimir</button>
-             <button id="volver-atras" class="btn-rojo">Atrás</button>
+        <div class="boleta-buttons">
+            <button id="imprimir-boleta">Imprimir</button>
+            <button id="volver-atras" class="btn-rojo">Atrás</button>
         </div>
+    </div>  
         `;
+
         // Generar el código de barras
-    JsBarcode("#barcode", venta.codigo, {
-        format: "CODE128",
-        displayValue: true,
-        textAlign: "center",
-        fontSize: 12,
-        height: 40,
-        width: 2,
-        margin: 10,
-    });
-    
+        JsBarcode("#barcode", venta.codigo, {
+            format: "CODE128",
+            displayValue: true,
+            textAlign: "center",
+            fontSize: 12,
+            height: 40,
+            width: 2,
+            margin: 10,
+        });
+
         document.getElementById('imprimir-boleta').addEventListener('click', async () => {
             const configuracion = this.app.obtenerConfiguracionImpresora();
             if (!configuracion) {
                 return alert('Por favor, configure la impresora primero.');
             }
-            const { macImpresora, licencia } = configuracion;
-            const conector = new ConectorEscposAndroid(licencia);
+            const { macImpresora } = configuracion;
+
+            // Validar la dirección MAC nuevamente antes de imprimir
+            const macRegex = /^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$/;
+            if (!macRegex.test(macImpresora)) {
+                alert('La dirección MAC de la impresora no es válida.');
+                return;
+            }
+
+            const conector = new ConectorEscposAndroid();
             conector
                 .Iniciar()
                 .EstablecerAlineacion(ConectorEscposAndroid.ALINEACION_CENTRO)
