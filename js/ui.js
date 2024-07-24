@@ -66,8 +66,6 @@ class UI {
                 <form id="configuracion-impresora-form">
                     <label for="mac-impresora">MAC de la Impresora:</label>
                     <input type="text" id="mac-impresora" required>
-                    <label for="licencia">Licencia:</label>
-                    <input type="text" id="licencia" required>
                     <button type="submit">Guardar Configuración</button>
                 </form>
             </div>
@@ -75,8 +73,15 @@ class UI {
         document.getElementById('configuracion-impresora-form').addEventListener('submit', (e) => {
             e.preventDefault();
             const macImpresora = document.getElementById('mac-impresora').value;
-            const licencia = document.getElementById('licencia').value;
-            this.app.guardarConfiguracionImpresora(macImpresora, licencia);
+
+            // Validar la dirección MAC
+            const macRegex = /^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$/;
+            if (!macRegex.test(macImpresora)) {
+                alert('Por favor, ingrese una dirección MAC válida.');
+                return;
+            }
+
+            this.app.guardarConfiguracionImpresora(macImpresora);
             alert('Configuración guardada');
         });
 
@@ -84,7 +89,6 @@ class UI {
         const configuracion = this.app.obtenerConfiguracionImpresora();
         if (configuracion) {
             document.getElementById('mac-impresora').value = configuracion.macImpresora;
-            document.getElementById('licencia').value = configuracion.licencia;
         }
     }
     
