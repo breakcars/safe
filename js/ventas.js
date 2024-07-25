@@ -57,16 +57,5 @@ class Ventas {
     guardarVentas() {
         localStorage.setItem('ventas', JSON.stringify(this.ventas));
     }
-    buscarVenta(codigo) {
-        return this.ventas.find(venta => venta.codigo === codigo);
-    }
-    
-    actualizarVenta(ventaActualizada) {
-        const index = this.ventas.findIndex(venta => venta.codigo === ventaActualizada.codigo);
-        if (index !== -1) {
-            this.ventas[index] = ventaActualizada;
-            this.guardarVentas();
-        }
-    }
-    
+        
 }
